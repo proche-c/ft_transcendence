@@ -44,10 +44,10 @@ flowchart LR
 ✅ Standard user management, authentication, users across tournaments. 
  
 ### **Gameplay and user experience** 
-✅ Remote players. 
-✅ Multiplayer (more than 2 players in the same game). 
-✅ Add another game with user history and matchmaking. 
-✅ Live chat. 
+✅ Remote players.     
+✅ Multiplayer (more than 2 players in the same game).     
+✅ Add another game with user history and matchmaking.     
+✅ Live chat.     
 
 ### **AI-Algo** 
 ✅ User and game stats dashboards.

@@ -35,19 +35,29 @@ flowchart LR
 - **Backend**: A Node.js-based server handling application logic and database communication.
 
 ## **Feature Checklist**
-### **Major Modules** (1 point each)
+### **Web**
 ✅ Use a framework to build the backend. (Node.js)  
-✅ Standard user management, authentication, users across tournaments.  
-✅ Remote players (1 point) (?)  
-✅ Implement Two-Factor Authentication (2FA) and JWT. (?)  
-
-### **Minor Modules** (0.5 points each)
 ✅ Use a framework or a toolkit to build the frontend. (Tailwind CSS)  
-✅ Use a database for the backend.  
-✅ Game customization options.  
-✅ User and game stats dashboards.  
-✅ Monitoring system.  
-✅ Supports multiple languages.  
+✅ Use a database for the backend. 
+
+### **User Management** 
+✅ Standard user management, authentication, users across tournaments. 
+ 
+### **Gameplay and user experience** 
+✅ Remote players.
+✅ Multiplayer (more than 2 players in the same game).
+✅ Add another game with user history and matchmaking.
+✅ Live chat.
+
+### **AI-Algo** 
+✅ User and game stats dashboards.
+
+### **Cybersecurity** 
+✅ Implement Two-Factor Authentication (2FA) and JWT.
+
+### **Accessibility** 
+✅ Support on all devices.
+✅ Expanding browser compatibility.
 
 ## **Technologies Used**
 - **Frontend**: TypeScript, Tailwind CSS
@@ -65,7 +75,7 @@ flowchart LR
    ```
 2. Start the application using Docker Compose:
    ```sh
-   docker compose up --build
+   make start
    ```
 3. The application will be available at `https://${SERVER_IP}:8443/`
 

@@ -1,7 +1,13 @@
 # Transcendence Project
 
 ## Overview
-This project is a web application built with a containerized architecture using **Nginx, a backend service, and a frontend service**. The architecture follows this flow:
+ft_transcendence is a real-time multiplayer Pong tournament web application built as part of a 42 school project.
+It features a responsive single-page interface developed in **TypeScript** and allows users to play live
+Pong games locally or remotely. Players can register with aliases, participate in matchmaking, and compete
+in tournaments with clearly displayed match order. The game is fully containerized using Docker and follows
+strict frontend, backend, and security guidelines.Passwords are securely hashed, inputs are validated, and
+all communication is secured via HTTPS/WSS. The project avoids full-feature third-party libraries and ensures
+compatibility with the latest stable version of Firefox. The architecture follows this flow:
 
 ```mermaid
 flowchart LR

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pong</title>
+    <link rel="stylesheet" href="./app/tailwind.css">
+</head>
+<body class="">
+    <div id="app"></div>
+
+    <script type="module" src="./app/components/home.js"></script>
+    <script type="module" src="./app/components/menu.js"></script>
+    <script type="module" src="./app/components/header.js"></script>
+    <script type="module" src="./app/components/profile.js"></script>
+    <script type="module" src="./app/components/editProfile.js"></script>
+    <script type="module" src="./app/components/publicProfile.js"></script>
+    <script type="module" src="./app/components/friends.js"></script>
+    <script type="module" src="./app/components/board.js"></script>
+    <script type="module" src="./app/components/pong/play.js"></script>
+    <script type="module" src="./app/components/chat.js"></script>
+    <script type="module" src="./app/components/login.js"></script>
+    <script type="module" src="./app/components/register.js"></script>
+   
+    <script type="module">
+        import { SERVER_IP } from './app/config.js';
+        
+        async function isAuthenticated() {
+            try {
+                const response = await fetch(`https://${SERVER_IP}:8443/api/check-auth`, {
+                    method: "GET",
+                    credentials: "include",
+                });
+                console.log(response);
+
+                return response.ok;
+            } catch (error) {
+                console.log("Authentication verification failed", error);
+                return false;
+            }
+
+        }
+
+        async function renderComponent() {
+            const appContainer = document.getElementById("app");
+            if (!appContainer) return;
+
+            const protectedRoutes = ["#profile", "#board", "#play", "#chat"];
+
+            if (protectedRoutes.includes(location.hash)) {
+                const auth = await isAuthenticated();
+                if (!auth) {
+                    location.hash = "#";
+                    return ;
+                }
+            }
+    
+            if (location.hash === "#profile") {
+                // Evita recrear el componente si ya existe
+                if (!appContainer.querySelector("pong-profile")) {
+                    appContainer.innerHTML = ""; 
+                    appContainer.appendChild(document.createElement("pong-profile"));
+                }
+            } else if (location.hash === "#board") {
+                if (!appContainer.querySelector("pong-board")) {
+                    appContainer.innerHTML = ""; 
+                    appContainer.appendChild(document.createElement("pong-board"));
+                }
+            } else if (location.hash === "#play") {
+                if (!appContainer.querySelector("pong-play")) {
+                    appContainer.innerHTML = ""; 
+                    appContainer.appendChild(document.createElement("pong-play"));
+                }                
+            } else if (location.hash === "#chat") {
+                if (!appContainer.querySelector("pong-chat")) {
+                    appContainer.innerHTML = ""; 
+                    appContainer.appendChild(document.createElement("pong-chat"));
+                }
+            } else if (location.hash === "#friends") {
+                if (!appContainer.querySelector("pong-friends")) {
+                    appContainer.innerHTML = ""; 
+                    appContainer.appendChild(document.createElement("pong-friends"));
+                }
+            } else {
+                // if (!appContainer.querySelector("pong-home")) {
+                    appContainer.innerHTML = "";
+                    appContainer.appendChild(document.createElement("pong-home"));
+                // }
+            }
+        }
+    
+        // Detectar cambios en la URL y al cargar la página
+        window.onpopstate = renderComponent;
+        window.addEventListener("DOMContentLoaded", renderComponent);
+    </script>
+</body>
+</html>

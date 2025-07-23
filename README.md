@@ -50,13 +50,13 @@ flowchart LR
 ✅ Live chat.     
 
 ### **AI-Algo** 
-✅ User and game stats dashboards.
+✅ User and game stats dashboards.    
 
 ### **Cybersecurity** 
 ✅ Implement Two-Factor Authentication (2FA) and JWT.
 
 ### **Accessibility** 
-✅ Support on all devices.
+✅ Support on all devices.    
 ✅ Expanding browser compatibility.
 
 ## **Technologies Used**

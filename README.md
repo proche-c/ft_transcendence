@@ -65,7 +65,6 @@ flowchart LR
 - **Database**: SQLite
 - **Proxy**: Nginx
 - **Authentication**: JWT, Two-Factor Authentication (2FA)
-- **Monitoring**: Prometheus, Grafana
 
 ## **Setup Instructions**
 1. Clone the repository:
